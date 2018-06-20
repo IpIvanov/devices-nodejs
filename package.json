@@ -16,7 +16,9 @@
   },
   "devDependencies": {
     "request": "^2.81.0",
-    "tape": "^4.7.0"
+    "tape": "^4.7.0",
+    "body-parser": "^1.18.2",
+    "mongodb": "^2.2.33"
   },
   "repository": {
     "type": "git",
