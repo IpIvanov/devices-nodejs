@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use('/api', router);
 
 const MongoClient = require('mongodb').MongoClient;
-const mongoURL = MONGODB_URI;
+const mongoURL = 'mongodb://heroku_pzjkqtx4:jopj4k95skgmra6noco7g85hod@ds163510.mlab.com:63510/heroku_pzjkqtx4';
 
 
 router.get('/devices', function (request, response) {
