@@ -42,15 +42,17 @@ router.get('/devices', function (request, response) {
 });
 
 router.post('/device', function (request, response) {
-  let device = request.body.device;
+  const device = request.body.device;
+  const isAvailable = request.body.isAvailable;
+  const booker = request.body.booker;
 
   MongoClient.connect(mongoURL, function (err, db) {
     if (err) throw err;
-    db.collection('devices').findOne({ name: device }, function (err, result) {
+    db.collection('devices').update({ device }, { $set: { booker, isAvailable } }, function (err, result) {
       if (err) throw err;
-      response.json(result);
+      response.json({ status: "record is updated" });
       db.close();
-    });
+    })
   });
 });
 
